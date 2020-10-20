@@ -1,10 +1,10 @@
 # TBD
 
-- [ ] see our template as posted in piazza
+- [ ] please use our template as posted in piazza
 - [ ] please leanr markdown
-- [ ] refernces missing
+- [ ] please add refernces
 
-Jiayu Li.
+Jiayu Li
 
 ## INtroductions
 
