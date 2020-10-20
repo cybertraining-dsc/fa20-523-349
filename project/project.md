@@ -6,7 +6,7 @@
 
 Jiayu Li
 
-## INtroductions
+## Introduction
 
 Rank Forecasting in Car Racing.
 Indy500 is the premier event of the IndyCar series. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. 
