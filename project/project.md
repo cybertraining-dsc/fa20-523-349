@@ -1,13 +1,27 @@
 # Rank Forecasting in Car Racing
 
-- [ ] please use our template as posted in piazza
+- [ ] Gregor fixed template
 - [ ] please leanr markdown
-- [ ] please add refernces
+- [ ] refernces are not cited in text
+- [ ] background missing
+- [ ] what is progress?
 
-Jiayu Li
+* Jiayu Li, fa20-523-349 
+* [Edit](https://github.com/cybertraining-dsc/fa20-523-349/blob/master/project/project.md)
+
+{{% pageinfo %}}
 
 ## Abstract
+
 Rank forecasting in car racing is a challenging problem, which is featured with highly complex global dependency among the cars, with uncertainty resulted from existing exogenous factors, and as a sparse data problem. Existing methods, including statistical models, machine learning regression models, and several state-of-the-art deep forecasting models all perform not well on this problem. By elaborative analysis of pit stops events, we find it is critical to decompose the cause effects and model them, the rank position and pit stop events, separately. We propose RankNet, a combination of encoder-decoder network and separate MLP network that capable of delivering probabilistic forecasting to model the pit stop events and rank position in car racing. Further with the help of feature optimizations, RankNet demonstrates a significant performance improvement over the baselines.
+
+Contents
+
+{{< table_of_contents >}}
+
+{{% /pageinfo %}}
+
+**Keywords:** TBD.
 
 ## 1. Introduction
 
@@ -38,10 +52,10 @@ The author would like to thank Dr. Gregor Von Laszewski, Dr. Geoffrey Fox, and t
 
 ## 8. References
 
-[1]: IndyCar Dataset.https://racetools.com/logfiles/IndyCar/. visited  on 04/15/2020
+[^1]: IndyCar Dataset.https://racetools.com/logfiles/IndyCar/. visited  on 04/15/2020
 
-[2]: M4 Competition.https://forecasters.org/resources/time-series-data/m4-competition/.
+[^2]: M4 Competition.https://forecasters.org/resources/time-series-data/m4-competition/.
 
-[3]: Ding,  M.  Zhang,  X.  Pan,  M.  Yang,  and  X.  He.  Modeling  extremeevents  in  time  series  prediction.InProceedings  of  the  25th  ACMSIGKDD, pages 1114–1122, New York, NY, USA, 2019.
+[^3]: Ding,  M.  Zhang,  X.  Pan,  M.  Yang,  and  X.  He.  Modeling  extremeevents  in  time  series  prediction.InProceedings  of  the  25th  ACMSIGKDD, pages 1114–1122, New York, NY, USA, 2019.
 
-[4]: N.  Oreshkin,  D.  Carpov,  N.  Chapados,  and  Y.  Bengio.   N-BEATS:Neural basis expansion analysis for interpretable time series forecasting.InProceedings  of  International  Conference  on  Learning  Representa-tions(ICLR), 2020.
+[^4]: N.  Oreshkin,  D.  Carpov,  N.  Chapados,  and  Y.  Bengio.   N-BEATS:Neural basis expansion analysis for interpretable time series forecasting.InProceedings  of  International  Conference  on  Learning  Representa-tions(ICLR), 2020.
