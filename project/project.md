@@ -1,5 +1,7 @@
 # Rank Forecasting in Car Racing
 
+[![Check Report](https://github.com/cybertraining-dsc/fa20-523-349/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-349/actions)
+
 - [ ] Gregor fixed template
 - [ ] please leanr markdown
 - [ ] refernces are not cited in text
