@@ -7,6 +7,8 @@
 - [ ] refernces are not cited in text
 - [ ] background missing
 - [ ] what is progress?
+- [ ] Please add keywords (Vibhatha)
+- [ ] Also add content to the missing topics (Vibhatha)
 
 * Jiayu Li, fa20-523-349 
 * [Edit](https://github.com/cybertraining-dsc/fa20-523-349/blob/master/project/project.md)
