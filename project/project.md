@@ -50,6 +50,21 @@ First, we start from Indy500 and use Indy500-2018 as validation set. Then we inv
 ## 4. Methodology
 
 ## 5. Inference
+Table shows the evaluation results of two laps rank position forecasting. 
+CurRank demonstrates good performance. 73\% leader prediction correct and 1.16 mean absolute error on Indy500-2019 indicates that the rank position does not change much within two laps. 
+
+DeepAR is a powerful model but fails to exceed CurRank, which reflects the difficulty of this task that the patterns of the rank position variations are not easy to learn from history.
+When adding an oracle PitModel, DeepAR-Oracle shows a 28\% improvement in MAE over CurRank. 
+By adding further optimizations, RankNet-Oracle(which uses DeepAR as RankModel) achieves significantly better performance than CurRank, with 23\% better in Top1Acc and 51\% better in MAE. 
+These results demonstrate the effectiveness of model decomposition and domain knowledge-based optimizations.
+
+Comparing the four state-of-the-art deep forecasting models as the choice of RankModel, we find DeepAR and N-BEATS obtains similar performance, but the N-BEATS is limited in supporting covariates which prevents it to be adopted into RankNet. DeepState and DeepFactor demonstrate very poor forecasting performance on this problem. 
+We speculate that the model assumption is critical to how well the model fits the problem. These four deep models are all capable of capturing global dependencies among multiple time series, but through different assumptions. N-BEATS and DeepAR do not introduce strong assumptions and learns similarity among time series through shared the same network in training all the time series. DeepState is a state-space model that assumes a linear-Gaussian transition structure and assumes the time series are conditional independent of the model parameters. DeepFactor, as a factor model, requires the data to be exchangeable time series and assumes to be able to explicitly model global dependency by line combination of global factors. As the car racing rank forecasting problem is challenging in its highly dynamic with complex global dependency among the cars, models with strong assumptions of the structure of the global dependency do not perform as well as the one with weaker assumptions. And also this is a data sparse problem, which prefers the model that can provide forecasts for items that have little history available, where DeepAR has advantages\cite{salinas_deepar_2017}.
+
+Other machine learning models, and RankNet-Joint all failed to get better accuracy than CurRank.
+RankNet-MLP, our proposed model, is not as good as RankNet-Oracle, but still able to exceed CurRank by 7\% in Top1Acc and 19\% in MAE. It also achieves more than 20\% improvement of accuracy on 90-risk when probabilistic forecasting gets considered. 
+%Detailed comparsion are presented in apeedix~\ref{sec:appendix_performance_improve_shotterm}.
+Evaluation results on PitStop Covered Laps, where pit stop occurs at least once in one lap distance, show the advantages of RankNet-MLP and Oracle come from their capability of better forecasting in these extreme events areas.
 
 ## 6. Conclusion
 In this project, we use deep learning models to the challenging problem of modeling sequence data with high uncertainty and extreme events. With the IndyCar car racing data, we find that the model decomposition based on the cause-effect relationship is critical to improving the rank position forecasting performance. 
