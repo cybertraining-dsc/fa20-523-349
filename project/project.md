@@ -37,7 +37,10 @@ A local communication network broadcasts race information to all the teams, foll
 ## 2. Background Research and Previous Work
 Indy500 is the premier event of the IndyCar series. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. The track is split into several sections or timeline. E.g., SF/SFP indicate the start and finish line on the track or on the pit lane, respectively.A local communication network broadcasts race information to all the teams, following a general data exchange.
 ![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/fig1.png)
-In motorsports, a \textbf{pit stop} is a pause for refueling, new tires, repairs, mechanical adjustments, a driver change, a penalty, or any combination of them.Unexpected events happen in a race, including mechanical failures or a crash. Depending on the severity level of the event, sometimes it leads to a dangerous situation for other cars to continue the racing with high speed on the track. In these cases, a full course yellow flag rises to indicate the race entering a \textbf{caution laps} mode, in which all the cars slow down and follow a safety car and can not overtake until another green flag raised. 
+In motorsports, a \textbf{pit stop} is a pause for refueling, new tires, repairs, mechanical adjustments, a driver change, a penalty, or any combination of them.Unexpected events happen in a race, including mechanical failures or a crash. Depending on the severity level of the event, sometimes it leads to a dangerous situation for other cars to continue the racing with high speed on the track. In these cases, a full course yellow flag rises to indicate the race entering a caution laps mode, in which all the cars slow down and follow a safety car and can not overtake until another green flag raised. 
+
+[5][6] is a series of work forecasting the decision-to-decision loss in rank position for each racer in NASCAR. [6] describes how they leveraged expert knowledge of the domain to produce a real-time decision system for tire changes within a NASCAR race. 
+They chose to model the change in rank position and avoid predicting the rank position directly since it is complicated due to its dependency on the timing of other racers' pit stops. In our work, we aim to build forecasting that relies less on domain knowledge and investigate the pit stop modeling.
 
 ## 3. Choice of Data-sets
 
@@ -95,3 +98,7 @@ The author would like to thank Dr. Gregor Von Laszewski, Dr. Geoffrey Fox, and t
 [^3]: Ding,  M.  Zhang,  X.  Pan,  M.  Yang,  and  X.  He.  Modeling  extremeevents  in  time  series  prediction.InProceedings  of  the  25th  ACMSIGKDD, pages 1114–1122, New York, NY, USA, 2019.
 
 [^4]: N.  Oreshkin,  D.  Carpov,  N.  Chapados,  and  Y.  Bengio.   N-BEATS:Neural basis expansion analysis for interpretable time series forecasting.InProceedings  of  International  Conference  on  Learning  Representa-tions(ICLR), 2020.
+
+[^5]: C. L. W. Choo.   Real-time decision making in motorsports: analytics forimproving  professional  car  race  strategy, PhD  Thesis,  MassachusettsInstitute of Technology, 2015.
+
+[^6]: T.  Tulabandhula.Interactions  between  learning  and  decision  making.PhD Thesis, Massachusetts Institute of Technology, 2014.
