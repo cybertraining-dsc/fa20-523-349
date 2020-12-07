@@ -52,7 +52,11 @@ First, we start from Indy500 and use Indy500-2018 as validation set. Then we inv
 ## 5. Inference
 
 ## 6. Conclusion
-
+In this project, we use deep learning models to the challenging problem of modeling sequence data with high uncertainty and extreme events. With the IndyCar car racing data, we find that the model decomposition based on the cause-effect relationship is critical to improving the rank position forecasting performance. 
+We compare several state-of-the-art deep forecasting models: DeepAR, DeepState, DeepFactors,and N-BEATS. The results show that they cannot perform well on the global dependency structure. 
+Finally, we propose RankNet, a combination of the encoder-decoder network and a separate MLP network that capable of delivering probabilistic forecasting, to model the pit stop events and rank position in car racing. 
+In this way, we incorporate domain knowledge to enhance the deep learning method.
+Our proposed model achieves significantly better accuracy than baseline models in the rank position forecasting task. The advantages of needing less feature engineering efforts and providing probabilistic forecasting enable racing strategy optimizations. 
 ## 7. Acknowledgements
 
 The author would like to thank Dr. Gregor Von Laszewski, Dr. Geoffrey Fox, and the associate instructors in the *FA20-BL-ENGR-E534-11530: Big Data Applications* course (offered in the Fall 2020 semester at Indiana University, Bloomington) for their continued assistance and suggestions with regard to exploring this idea and also for their aid with preparing the various drafts of this article.
