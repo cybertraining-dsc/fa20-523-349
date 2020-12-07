@@ -46,6 +46,7 @@ Among all the events, Indy500 is the most dynamic one which has both the largest
 
 We will train models separately for each event. Races of the first five years are used as the training dataset, the remains are used as testing data. Since Pocono has only five years of data in total, its training set uses four of them. 
 First, we start from Indy500 and use Indy500-2018 as validation set. Then we investigate the generalization capability of the model on data of the other events.
+![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/fig3.png)
 
 ## 4. Methodology
 First, we have a naive baseline which assumes that the rank positions will not change in the future, denoted as CurRank. 
