@@ -53,8 +53,8 @@ First, we start from Indy500 and use Indy500-2018 as validation set. Then we inv
 
 ## 4. Methodology
 First, we have a naive baseline which assumes that the rank positions will not change in the future, denoted as CurRank. 
-Secondly, We implement machine learning regression models as baselines that follow the ideas in \cite{tulabandhula_interactions_2014} which forecast changes of rank position between two consecutive pit stops, including RandomForest, SVM, and XGBoost that do pointwise forecast.
-Thirdly, we test with four latest deep forecasting models as the choice of RankModel, including DeepAR(2017)\cite{salinas_deepar_2017}, DeepState(2018)\cite{rangapuram_deep_2018}, DeepFactor(2019), N-BEATS(2020)[4].
+Secondly, We implement machine learning regression models as baselines that follow the ideas in which forecast changes of rank position between two consecutive pit stops, including RandomForest, SVM, and XGBoost that do pointwise forecast.
+Thirdly, we test with four latest deep forecasting models as the choice of RankModel, including DeepAR(2017)[7], DeepState(2018), DeepFactor(2019), N-BEATS(2020)[4].
 PitModel has three implementations. For example for RankNet, we have 1. RankNet-Joint is the model that train target with pit stop jointly without decomposition. 2. RankNet-Oracle is the model with ground truth TrackStatus and LapStatus as covariates input. It represents the best performance that can be obtained from the model given the caution and pit stop information for a race. 3. RankNet-MLP deploys a separate pit stop model, which is a multilayer perceptron(MLP) network with probability output, as in Fig.  
 
 ![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/fig4.png)
@@ -102,3 +102,5 @@ The author would like to thank Dr. Gregor Von Laszewski, Dr. Geoffrey Fox, and t
 [^5]: C. L. W. Choo.   Real-time decision making in motorsports: analytics forimproving  professional  car  race  strategy, PhD  Thesis,  MassachusettsInstitute of Technology, 2015.
 
 [^6]: T.  Tulabandhula.Interactions  between  learning  and  decision  making.PhD Thesis, Massachusetts Institute of Technology, 2014.
+
+[^7]: D.Salinas, V. Flunkert, and  J. Gasthaus.DeepAR: Probabilisticforecasting with autoregressive recurrent networks.arXiv:1704.04110[cs, stat], Apr. 2017
