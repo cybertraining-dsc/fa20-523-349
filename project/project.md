@@ -51,8 +51,9 @@ First, we start from Indy500 and use Indy500-2018 as validation set. Then we inv
 First, we have a naive baseline which assumes that the rank positions will not change in the future, denoted as CurRank. 
 Secondly, We implement machine learning regression models as baselines that follow the ideas in \cite{tulabandhula_interactions_2014} which forecast changes of rank position between two consecutive pit stops, including RandomForest, SVM, and XGBoost that do pointwise forecast.
 Thirdly, we test with four latest deep forecasting models as the choice of RankModel, including DeepAR(2017)\cite{salinas_deepar_2017}, DeepState(2018)\cite{rangapuram_deep_2018}, DeepFactor(2019)\cite{wang_deep_2019}, N-BEATS(2020)\cite{oreshkin_n-beats_2020}.
-PitModel has three implementations. For example for RankNet, we have 1. RankNet-Joint is the model that train target with pit stop jointly without decomposition. 2. RankNet-Oracle is the model with ground truth TrackStatus and LapStatus as covariates input. It represents the best performance that can be obtained from the model given the caution and pit stop information for a race. 3. RankNet-MLP deploys a separate pit stop model, which is a multilayer perceptron(MLP) network with probability output, as in Fig.~\ref{fig:arch}(b).  
+PitModel has three implementations. For example for RankNet, we have 1. RankNet-Joint is the model that train target with pit stop jointly without decomposition. 2. RankNet-Oracle is the model with ground truth TrackStatus and LapStatus as covariates input. It represents the best performance that can be obtained from the model given the caution and pit stop information for a race. 3. RankNet-MLP deploys a separate pit stop model, which is a multilayer perceptron(MLP) network with probability output, as in Fig.  
 
+![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/fig4.png)
 
 ## 5. Inference
 Table shows the evaluation results of two laps rank position forecasting. 
@@ -70,6 +71,9 @@ Other machine learning models, and RankNet-Joint all failed to get better accura
 RankNet-MLP, our proposed model, is not as good as RankNet-Oracle, but still able to exceed CurRank by 7\% in Top1Acc and 19\% in MAE. It also achieves more than 20\% improvement of accuracy on 90-risk when probabilistic forecasting gets considered. 
 %Detailed comparsion are presented in apeedix~\ref{sec:appendix_performance_improve_shotterm}.
 Evaluation results on PitStop Covered Laps, where pit stop occurs at least once in one lap distance, show the advantages of RankNet-MLP and Oracle come from their capability of better forecasting in these extreme events areas.
+
+![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/table.png)
+
 
 ## 6. Conclusion
 In this project, we use deep learning models to the challenging problem of modeling sequence data with high uncertainty and extreme events. With the IndyCar car racing data, we find that the model decomposition based on the cause-effect relationship is critical to improving the rank position forecasting performance. 
