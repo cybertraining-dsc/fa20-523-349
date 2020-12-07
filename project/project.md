@@ -36,7 +36,7 @@ A local communication network broadcasts race information to all the teams, foll
 
 ## 2. Background Research and Previous Work
 Indy500 is the premier event of the IndyCar series. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. The track is split into several sections or timeline. E.g., SF/SFP indicate the start and finish line on the track or on the pit lane, respectively.A local communication network broadcasts race information to all the teams, following a general data exchange.
-
+![image](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/Fig2b-Indy500-2018-car12.pdf)
 In motorsports, a \textbf{pit stop} is a pause for refueling, new tires, repairs, mechanical adjustments, a driver change, a penalty, or any combination of them.Unexpected events happen in a race, including mechanical failures or a crash. Depending on the severity level of the event, sometimes it leads to a dangerous situation for other cars to continue the racing with high speed on the track. In these cases, a full course yellow flag rises to indicate the race entering a \textbf{caution laps} mode, in which all the cars slow down and follow a safety car and can not overtake until another green flag raised. 
 
 ## 3. Choice of Data-sets
