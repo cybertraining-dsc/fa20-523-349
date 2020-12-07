@@ -48,6 +48,11 @@ We will train models separately for each event. Races of the first five years ar
 First, we start from Indy500 and use Indy500-2018 as validation set. Then we investigate the generalization capability of the model on data of the other events.
 
 ## 4. Methodology
+First, we have a naive baseline which assumes that the rank positions will not change in the future, denoted as CurRank. 
+Secondly, We implement machine learning regression models as baselines that follow the ideas in \cite{tulabandhula_interactions_2014} which forecast changes of rank position between two consecutive pit stops, including RandomForest, SVM, and XGBoost that do pointwise forecast.
+Thirdly, we test with four latest deep forecasting models as the choice of RankModel, including DeepAR(2017)\cite{salinas_deepar_2017}, DeepState(2018)\cite{rangapuram_deep_2018}, DeepFactor(2019)\cite{wang_deep_2019}, N-BEATS(2020)\cite{oreshkin_n-beats_2020}.
+PitModel has three implementations. For example for RankNet, we have 1. RankNet-Joint is the model that train target with pit stop jointly without decomposition. 2. RankNet-Oracle is the model with ground truth TrackStatus and LapStatus as covariates input. It represents the best performance that can be obtained from the model given the caution and pit stop information for a race. 3. RankNet-MLP deploys a separate pit stop model, which is a multilayer perceptron(MLP) network with probability output, as in Fig.~\ref{fig:arch}(b).  
+
 
 ## 5. Inference
 Table shows the evaluation results of two laps rank position forecasting. 
