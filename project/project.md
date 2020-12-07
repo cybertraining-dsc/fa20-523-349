@@ -25,7 +25,7 @@ Contents
 
 {{% /pageinfo %}}
 
-**Keywords:** TBD.
+**Keywords:** Time series forecasting, deep learning.
 
 ## 1. Introduction
 
