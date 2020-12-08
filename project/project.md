@@ -4,7 +4,7 @@
 [![Status](https://github.com/cybertraining-dsc/fa20-523-349/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-349/actions)
 Status: final, Type: Project
 
-- [x] comments have been send to piazza
+- [ ] tables and figures have no caption
 
 * Jiayu Li, fa20-523-349 
 * [Edit](https://github.com/cybertraining-dsc/fa20-523-349/blob/master/project/project.md)
