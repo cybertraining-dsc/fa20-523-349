@@ -2,14 +2,15 @@
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-349/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-349/actions)
 
-- [ ] Gregor fixed template
-- [ ] please leanr markdown
-- [ ] refernces are not cited in text
-- [ ] background missing
-- [ ] what is progress?
-- [ ] Please add keywords (Vibhatha)
-- [ ] Also add content to the missing topics (Vibhatha)
+- [x] Gregor fixed template
+- [x] please leanr markdown
+- [x] refernces are not cited in text
+- [x] background missing
+- [x] what is progress?
+- [x] Please add keywords (Vibhatha)
+- [x] Also add content to the missing topics (Vibhatha)
 
+Status: final
 * Jiayu Li, fa20-523-349 
 * [Edit](https://github.com/cybertraining-dsc/fa20-523-349/blob/master/project/project.md)
 
