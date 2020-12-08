@@ -13,7 +13,8 @@ Status: final, Type: Project
 
 ## Abstract
 
-Rank forecasting in car racing is a challenging problem, which is featured with highly complex global dependency among the cars, with uncertainty resulted from existing exogenous factors, and as a sparse data problem. Existing methods, including statistical models, machine learning regression models, and several state-of-the-art deep forecasting models all perform not well on this problem. By elaborative analysis of pit stops events, we find it is critical to decompose the cause effects and model them, the rank position and pit stop events, separately. We propose RankNet, a combination of encoder-decoder network and separate MLP network that capable of delivering probabilistic forecasting to model the pit stop events and rank position in car racing. Further with the help of feature optimizations, RankNet demonstrates a significant performance improvement over the baselines.
+The IndyCar Series is the premier level of open-wheel racing in North America. Computing System and Data analytics is critical to the game, both in improving the performance of the team to make it faster and in helping the race control to make it safer. IndyCar ranking prediction is a practical application of time series problems. We will use the LSTM model to analyze the state of the car, and then predict the future ranking of the car. Rank forecasting in car racing is a challenging problem, which is featured with highly complex global dependency among the cars, with uncertainty resulted from existing exogenous factors, and as a sparse data problem. Existing methods, including statistical models, machine learning regression models, and several state-of-the-art deep forecasting models all perform not well on this problem. In this project, we apply deep learning methods to racing telemetry data. And compare deep learning with traditional statistical methods (SVM, XGBoost).
+
 
 Contents
 
@@ -25,18 +26,17 @@ Contents
 
 ## 1. Introduction
 
-Rank Forecasting in Car Racing.
-Indy500 is the premier event of the IndyCar series. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. 
-The track is split into several sections or timeline. E.g., SF/SFP indicate the start and finish line on the track or on the pit lane, respectively.
-A local communication network broadcasts race information to all the teams, following a general data exchange protocol\cite{IndyCar_Understanding_nodate}.
-we aim to predict the leading car in the future through telemetry data generated in real time during the race.
-Given a prediction step $t_p$, and a time point $t_0$ in the game, we predict the following two events: a) Whether the currently leading car continue to lead at time $t_0 + t_p$. b): Which car is the leading car at  time $t_0 + t_p$.
+Indy500 is the premier event of the IndyCar series. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. The track is split into several sections or timeline. E.g., SF/SFP indicate the start and finish line on the track or on the pit lane, respectively. A local communication network broadcasts race information to all the teams, following a general data exchange protocol.
+We aim to predict the leading car in the future through telemetry data generated in real time during the race. Given a prediction step $t_p$, and a time point $t_0$ in the game, we predict the following two events:
+1. Whether the currently leading car continue to lead at time t_0 + t_p. 
+2. Which car is the leading car at  time t_0 + t_p.
 
 
 ## 2. Background Research and Previous Work
 
 In many real-world applications, data is captured over the course of time, constituting a Time-Series. Time-Series often contain temporal dependencies that cause two otherwise identical points of time to belong to different classes or predict different behavior. This characteristic generally increases the difficulty of analysing them. 
-The IndyCar Series is the premier level of open-wheel racing in North America. Computing System and Data analytics is critical to the game, both in improving the performance of the team to make it faster and in helping the race control to make it safer. IndyCar ranking prediction is a practical application of time series problems. We will use the LSTM model to analyze the state of the car, and then predict the future ranking of the car.
+The traditional statistical learning model (Naive Bayes, SVM, Simple Neural Networks) is difficult to deal with the problem of time series prediction, since the model is unable to understand the time-series dependence of data. Traditional time series prediction models such as ARMA / ARIMA can only deal with linear time series with certain periodicity. The anomaly events and human strategies in the racing competition make these methods no longer applicable. Therefore, time series prediction models (RNN, GRU, LSTM, etc.) based on deep learning are more suitable for solving such problems.
+
 
 ## 3. Choice of Data-sets
 
@@ -47,21 +47,20 @@ We will train models separately for each event. Races of the first five years ar
 First, we start from Indy500 and use Indy500-2018 as validation set. Then we investigate the generalization capability of the model on data of the other events.
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled6.png)
 
-## 4. Methodology
 
-### Data preprocessing
+###  Structure of the log file
+
 The Multi-Loop Protocol is designed to deliver specific dynamic and static data that is set up and
 produced by the INDYCAR timing system. This is accomplished by serially streaming data that is broken
 down into different record sets. This information includes but is not limited to the following:
-
-Completed lap results
-Time line passing or crossing results
-Completed section results
-Current run or session information
-Flag information
-Track set up information including segment definitions
-Competitor information
-Announcement information
+- Completed lap results
+- Time line passing or crossing results
+- Completed section results
+- Current run or session information
+- Flag information
+- Track set up information including segment definitions
+- Competitor information
+- Announcement information
 
 
 The INDYCAR MLP is based on the AMB Multi-Loop Protocol version 1.3. This document contains the
@@ -73,6 +72,23 @@ Every record starts with a header and ends with a CR/LF. Inside the record, the
 fields are separated by a “broken bar” symbol 0xA6 (not to be confused with the pipe symbol 0x7C). The
 length of a record is not defined and can therefore be more than 256 characters. The data specific to
 each record Command is contained between the header and CR/LF.
+![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled8.png)
+
+
+
+## 4. Methodology
+
+### Data preprocessing
+
+There are two main sources of data: One is the game record from 2013 to 2019. The other is telemetry data for 2017 and 2018.
+
+The race record only includes the time spent in each section and does not include the precise location of every two cars at a certain point in time. 
+Telemetry data is a high-resolution data, each car will produce about 7 records per second, we use telemetry data to estimate the position of each car at any time.
+In order to expand the training data set, we used interpolation to convert ordinary race records into a time series of car positions.
+If we assume that the speed of the car within each section does not change, then the position of the car at time T can be calculated as follows:
+LapDistance(T) \approx L \frac{T-T_1}{T_2 - T_1} . T_1 and T_2 are the start and end time of the current section. L=2.5 miles is the length of the section.
+
+
 
 ### Feature selection
 
@@ -82,8 +98,8 @@ One is its current position: the car that is currently leading has a greater pro
 
 Therefore, we choose the following characteristics to predict ranking:
 
-The current position of each car (Lap and Lap Distance)
-Time of the last Pit Stop of each car
+- The current position of each car (Lap and Lap Distance)
+- Time of the last Pit Stop of each car
 
 Time series prediction problems are a difficult type of predictive modeling problem. Unlike regression predictive modeling, time series also adds the complexity of a sequence dependence among the input variables. A powerful type of neural network designed to handle sequence dependence is called recurrent neural networks. The Long Short-Term Memory network or LSTM network is a type of recurrent neural network used in deep learning because very large architectures can be successfully trained.
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled5.png)
