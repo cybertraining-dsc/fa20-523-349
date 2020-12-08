@@ -4,7 +4,7 @@
 [![Status](https://github.com/cybertraining-dsc/fa20-523-349/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-349/actions)
 Status: final, Type: Project
 
-- [ ] comments have been send to piazza
+- [x] comments have been send to piazza
 
 * Jiayu Li, fa20-523-349 
 * [Edit](https://github.com/cybertraining-dsc/fa20-523-349/blob/master/project/project.md)
@@ -26,7 +26,7 @@ Contents
 
 ## 1. Introduction
 
-Indy500 is the premier event of the IndyCar series. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. The track is split into several sections or timeline. E.g., SF/SFP indicate the start and finish line on the track or on the pit lane, respectively. A local communication network broadcasts race information to all the teams, following a general data exchange protocol.
+Indy500 is the premier event of the IndyCar series[^1]. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. The track is split into several sections or timeline. E.g., SF/SFP indicate the start and finish line on the track or on the pit lane, respectively. A local communication network broadcasts race information to all the teams, following a general data exchange protocol.
 We aim to predict the leading car in the future through telemetry data generated in real time during the race. Given a prediction step $t_p$, and a time point $t_0$ in the game, we predict the following two events:
 1. Whether the currently leading car continue to lead at time t_0 + t_p. 
 2. Which car is the leading car at  time t_0 + t_p.
@@ -36,7 +36,7 @@ We aim to predict the leading car in the future through telemetry data generated
 
 In many real-world applications, data is captured over the course of time, constituting a Time-Series. Time-Series often contain temporal dependencies that cause two otherwise identical points of time to belong to different classes or predict different behavior. This characteristic generally increases the difficulty of analysing them. 
 The traditional statistical learning model (Naive Bayes, SVM, Simple Neural Networks) is difficult to deal with the problem of time series prediction, since the model is unable to understand the time-series dependence of data. Traditional time series prediction models such as ARMA / ARIMA can only deal with linear time series with certain periodicity. The anomaly events and human strategies in the racing competition make these methods no longer applicable. Therefore, time series prediction models (RNN, GRU, LSTM, etc.) based on deep learning are more suitable for solving such problems.
-
+Previous racing prediction attempts such as [^1][^5][^6] could not make real-time predictions because the data they used was based on Lap, that is, new data would only be generated when the car passed a specific position. And we will try to use high-frequency telemetry data to make predictions.
 
 ## 3. Choice of Data-sets
 
@@ -135,4 +135,4 @@ The author would like to thank Dr. Gregor Von Laszewski, Dr. Geoffrey Fox, and t
 
 [^6]: T.  Tulabandhula.Interactions  between  learning  and  decision  making.PhD Thesis, Massachusetts Institute of Technology, 2014.
 
-[^7]: D.Salinas, V. Flunkert, and  J. Gasthaus.DeepAR: Probabilisticforecasting with autoregressive recurrent networks.arXiv:1704.04110[cs, stat], Apr. 2017
+
