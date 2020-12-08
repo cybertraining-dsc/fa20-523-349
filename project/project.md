@@ -29,7 +29,8 @@ Rank Forecasting in Car Racing.
 Indy500 is the premier event of the IndyCar series. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. 
 The track is split into several sections or timeline. E.g., SF/SFP indicate the start and finish line on the track or on the pit lane, respectively.
 A local communication network broadcasts race information to all the teams, following a general data exchange protocol\cite{IndyCar_Understanding_nodate}.
-
+we aim to predict the leading car in the future through telemetry data generated in real time during the race.
+Given a prediction step $t_p$, and a time point $t_0$ in the game, we predict the following two events: a) Whether the currently leading car continue to lead at time $t_0 + t_p$. b): Which car is the leading car at  time $t_0 + t_p$.
 
 
 ## 2. Background Research and Previous Work
@@ -48,7 +49,7 @@ First, we start from Indy500 and use Indy500-2018 as validation set. Then we inv
 
 ## 4. Methodology
 
-Data preprocessing
+### Data preprocessing
 The Multi-Loop Protocol is designed to deliver specific dynamic and static data that is set up and
 produced by the INDYCAR timing system. This is accomplished by serially streaming data that is broken
 down into different record sets. This information includes but is not limited to the following:
@@ -73,7 +74,7 @@ fields are separated by a “broken bar” symbol 0xA6 (not to be confused with 
 length of a record is not defined and can therefore be more than 256 characters. The data specific to
 each record Command is contained between the header and CR/LF.
 
-Feature selection
+### Feature selection
 
 
 The future ranking of a car is mainly affected by two factors:
