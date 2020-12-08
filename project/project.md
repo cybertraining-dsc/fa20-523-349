@@ -47,6 +47,7 @@ Telemetry data is a high-resolution data, each car will produce about 7 records 
 In order to expand the training data set, we used interpolation to convert ordinary race records into a time series of car positions.
 If we assume that the speed of the car within each section does not change, then the position of the car at time T can be calculated as follows:
 LapDistance(T) \approx L \frac{T-T_1}{T_2 - T_1} . T_1 and T_2 are the start and end time of the current section. L=2.5 miles is the length of the section.
+
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled6.png)
 
 
