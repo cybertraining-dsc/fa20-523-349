@@ -102,10 +102,13 @@ Time series prediction problems are a difficult type of predictive modeling prob
 ## 5. Inference
 
 Table 2 shows the experimental results, which verify our hypothesis that the time series prediction model based on deep learning obtained the highest accuracy. Although the LSTM model achieves the highest accuracy, its advantages are not as obvious as RankNet. This is because the telemetry data of racing cars is non-public, and the data available for training are limited.
+
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled4.png)
+
 According to the experimental results in Table 6, we draw the following conclusions:
 1. The LSTM model has higher accuracy in time series forecasting.
 2. Limited by the size of the training data set (only the telemetry data for 2 games is available), the accuracy improvement obtained by LSTM is not as obvious as RankNet.
+
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled7.png)
 
 ## 6. Conclusion
