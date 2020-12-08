@@ -50,9 +50,7 @@ First, we start from Indy500 and use Indy500-2018 as validation set. Then we inv
 
 ###  Structure of the log file
 
-The Multi-Loop Protocol is designed to deliver specific dynamic and static data that is set up and
-produced by the INDYCAR timing system. This is accomplished by serially streaming data that is broken
-down into different record sets. This information includes but is not limited to the following:
+The Multi-Loop Protocol is designed to deliver specific dynamic and static data that is set up and produced by the INDYCAR timing system. This is accomplished by serially streaming data that is broken down into different record sets. This information includes but is not limited to the following:
 - Completed lap results
 - Time line passing or crossing results
 - Completed section results
@@ -68,10 +66,7 @@ INDYCAR formats for specific fields not defined in the AMB document.
 
 Record Description:
 
-Every record starts with a header and ends with a CR/LF. Inside the record, the
-fields are separated by a “broken bar” symbol 0xA6 (not to be confused with the pipe symbol 0x7C). The
-length of a record is not defined and can therefore be more than 256 characters. The data specific to
-each record Command is contained between the header and CR/LF.
+Every record starts with a header and ends with a CR/LF. Inside the record, the fields are separated by a "broken bar" symbol 0xA6 (not to be confused with the pipe symbol 0x7C). The length of a record is not defined and can therefore be more than 256 characters. The data specific to each record Command is contained between the header and CR/LF.
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled8.png)
 
 
