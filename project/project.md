@@ -36,11 +36,12 @@ The track is split into several sections or timeline. E.g., SF/SFP indicate the 
 A local communication network broadcasts race information to all the teams, following a general data exchange protocol\cite{IndyCar_Understanding_nodate}.
 
 ## 2. Background Research and Previous Work
+
 Indy500 is the premier event of the IndyCar series. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. The track is split into several sections or timeline. E.g., SF/SFP indicate the start and finish line on the track or on the pit lane, respectively.A local communication network broadcasts race information to all the teams, following a general data exchange.
-![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/fig1.png)
+![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/figure/fig1.png)
 In motorsports, a \textbf{pit stop} is a pause for refueling, new tires, repairs, mechanical adjustments, a driver change, a penalty, or any combination of them.Unexpected events happen in a race, including mechanical failures or a crash. Depending on the severity level of the event, sometimes it leads to a dangerous situation for other cars to continue the racing with high speed on the track. In these cases, a full course yellow flag rises to indicate the race entering a caution laps mode, in which all the cars slow down and follow a safety car and can not overtake until another green flag raised. 
 
-[^5][^6] is a series of work forecasting the decision-to-decision loss in rank position for each racer in NASCAR. [^6] describes how they leveraged expert knowledge of the domain to produce a real-time decision system for tire changes within a NASCAR race. 
+A series of work forecasting the decision-to-decision loss in rank position for each racer in NASCAR[^5][^6], and [^6] describes how they leveraged expert knowledge of the domain to produce a real-time decision system for tire changes within a NASCAR race. 
 They chose to model the change in rank position and avoid predicting the rank position directly since it is complicated due to its dependency on the timing of other racers' pit stops. In our work, we aim to build forecasting that relies less on domain knowledge and investigate the pit stop modeling.
 
 ## 3. Choice of Data-sets
@@ -50,17 +51,19 @@ Among all the events, Indy500 is the most dynamic one which has both the largest
 
 We will train models separately for each event. Races of the first five years are used as the training dataset, the remains are used as testing data. Since Pocono has only five years of data in total, its training set uses four of them. 
 First, we start from Indy500 and use Indy500-2018 as validation set. Then we investigate the generalization capability of the model on data of the other events.
-![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/fig3.png)
+![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/figure/fig3.png)
 
 ## 4. Methodology
-First, we have a naive baseline which assumes that the rank positions will not change in the future, denoted as CurRank. 
+
+First, we have a naive baseline which assumes that the rank positions will not change in the future, denoted as CurRank.
 Secondly, We implement machine learning regression models as baselines that follow the ideas in which forecast changes of rank position between two consecutive pit stops, including RandomForest, SVM, and XGBoost that do pointwise forecast.
 Thirdly, we test with four latest deep forecasting models as the choice of RankModel, including DeepAR(2017)[^7], DeepState(2018), DeepFactor(2019), N-BEATS(2020)[^4].
 PitModel has three implementations. For example for RankNet, we have 1. RankNet-Joint is the model that train target with pit stop jointly without decomposition. 2. RankNet-Oracle is the model with ground truth TrackStatus and LapStatus as covariates input. It represents the best performance that can be obtained from the model given the caution and pit stop information for a race. 3. RankNet-MLP deploys a separate pit stop model, which is a multilayer perceptron(MLP) network with probability output, as in Fig.  
 
-![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/fig4.png)
+![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/figure/fig4.png)
 
 ## 5. Inference
+
 Table shows the evaluation results of two laps rank position forecasting. 
 CurRank demonstrates good performance. 73\% leader prediction correct and 1.16 mean absolute error on Indy500-2019 indicates that the rank position does not change much within two laps. 
 
@@ -77,10 +80,11 @@ RankNet-MLP, our proposed model, is not as good as RankNet-Oracle, but still abl
 %Detailed comparsion are presented in apeedix~\ref{sec:appendix_performance_improve_shotterm}.
 Evaluation results on PitStop Covered Laps, where pit stop occurs at least once in one lap distance, show the advantages of RankNet-MLP and Oracle come from their capability of better forecasting in these extreme events areas.
 
-![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/table.png)
+![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/figure/table.png)
 
 
 ## 6. Conclusion
+
 In this project, we use deep learning models to the challenging problem of modeling sequence data with high uncertainty and extreme events. With the IndyCar car racing data, we find that the model decomposition based on the cause-effect relationship is critical to improving the rank position forecasting performance. 
 We compare several state-of-the-art deep forecasting models: DeepAR, DeepState, DeepFactors,and N-BEATS. The results show that they cannot perform well on the global dependency structure. 
 Finally, we propose RankNet, a combination of the encoder-decoder network and a separate MLP network that capable of delivering probabilistic forecasting, to model the pit stop events and rank position in car racing. 
