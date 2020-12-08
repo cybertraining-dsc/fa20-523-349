@@ -2,13 +2,9 @@
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-349/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-349/actions)
 
-- [x] Gregor fixed template
-- [x] please leanr markdown
-- [x] refernces are not cited in text
-- [x] background missing
-- [x] what is progress?
-- [x] Please add keywords (Vibhatha)
-- [x] Also add content to the missing topics (Vibhatha)
+- [ ] Your paper is in large portions plagearized from https://arxiv.org/pdf/2010.01707.pdf. A report is not about copying text from other papers without not attributing the coauthors from that other paper. Also All sentences that you copied must be quoted with "this is a sentence that I copied [^1]". All figures need to have a caption. That caption must have the citation for the paper where you copied the image from in the caption.
+- [ ] obviously we could have given you the feedback eralier if you would have done this work earlier.
+- [ ] we do not use cite and ref we use footnotes for refernces
 
 Status: final
 * Jiayu Li, fa20-523-349 
