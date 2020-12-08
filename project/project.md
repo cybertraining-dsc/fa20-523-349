@@ -5,6 +5,7 @@
 Status: final, Type: Project
 
 - [ ] tables and figures have no caption
+- [ ] is the arXiv paper cited and relationship explained?
 
 * Jiayu Li, fa20-523-349 
 * [Edit](https://github.com/cybertraining-dsc/fa20-523-349/blob/master/project/project.md)
