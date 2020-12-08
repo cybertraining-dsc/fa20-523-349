@@ -27,7 +27,7 @@ Contents
 ## 1. Introduction
 
 Indy500 is the premier event of the IndyCar series[^1]. Each year, 33 cars compete on a 2.5-mile oval track for 200 laps. The track is split into several sections or timeline. E.g., SF/SFP indicate the start and finish line on the track or on the pit lane, respectively. A local communication network broadcasts race information to all the teams, following a general data exchange protocol.
-We aim to predict the leading car in the future through telemetry data generated in real time during the race. Given a prediction step $t_p$, and a time point $t_0$ in the game, we predict the following two events:
+We aim to predict the leading car in the future through telemetry data generated in real time during the race. Given a prediction step t_p, and a time point t_0 in the game, we predict the following two events:
 1. Whether the currently leading car continue to lead at time t_0 + t_p. 
 2. Which car is the leading car at  time t_0 + t_p.
 
@@ -35,16 +35,18 @@ We aim to predict the leading car in the future through telemetry data generated
 ## 2. Background Research and Previous Work
 
 In many real-world applications, data is captured over the course of time, constituting a Time-Series. Time-Series often contain temporal dependencies that cause two otherwise identical points of time to belong to different classes or predict different behavior. This characteristic generally increases the difficulty of analysing them. 
-The traditional statistical learning model (Naive Bayes, SVM, Simple Neural Networks) is difficult to deal with the problem of time series prediction, since the model is unable to understand the time-series dependence of data. Traditional time series prediction models such as ARMA / ARIMA can only deal with linear time series with certain periodicity. The anomaly events and human strategies in the racing competition make these methods no longer applicable. Therefore, time series prediction models (RNN, GRU, LSTM, etc.) based on deep learning are more suitable for solving such problems.
-Previous racing prediction attempts such as [^1][^5][^6] could not make real-time predictions because the data they used was based on Lap, that is, new data would only be generated when the car passed a specific position. And we will try to use high-frequency telemetry data to make predictions.
+The traditional statistical learning model (Naive Bayes, SVM, Simple Neural Networks) is difficult to deal with the problem of time series prediction, since the model is unable to understand the time-series dependence of data. Traditional time series prediction models such as autoregressive integrated moving average (ARIMA) can only deal with linear time series with certain periodicity. The anomaly events and human strategies in the racing competition make these methods no longer applicable. Therefore, time series prediction models (RNN, GRU, LSTM, etc.) based on deep learning are more suitable for solving such problems.
+Previous racing prediction attempts such as [^2][^5][^6] could not make real-time predictions because the data they used was based on Lap, that is, new data would only be generated when the car passed a specific position. And we will try to use high-frequency telemetry data to make predictions.
 
 ## 3. Choice of Data-sets
 
-We select races of superspeedway after 2013 with at least 5 years data each, and after removing corrupted data, get a dataset of 25 races from four events.
-Among all the events, Indy500 is the most dynamic one which has both the largest PitLapsRatio and RankChangesRatio, Iowa is the least. 
+There are two main sources of data: One is the game record from 2013 to 2019. The other is telemetry data for 2017 and 2018.
 
-We will train models separately for each event. Races of the first five years are used as the training dataset, the remains are used as testing data. Since Pocono has only five years of data in total, its training set uses four of them. 
-First, we start from Indy500 and use Indy500-2018 as validation set. Then we investigate the generalization capability of the model on data of the other events.
+The race record only includes the time spent in each section and does not include the precise location of every two cars at a certain point in time. 
+Telemetry data is a high-resolution data, each car will produce about 7 records per second, we use telemetry data to estimate the position of each car at any time.
+In order to expand the training data set, we used interpolation to convert ordinary race records into a time series of car positions.
+If we assume that the speed of the car within each section does not change, then the position of the car at time T can be calculated as follows:
+LapDistance(T) \approx L \frac{T-T_1}{T_2 - T_1} . T_1 and T_2 are the start and end time of the current section. L=2.5 miles is the length of the section.
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled6.png)
 
 
@@ -83,7 +85,10 @@ In order to expand the training data set, we used interpolation to convert ordin
 If we assume that the speed of the car within each section does not change, then the position of the car at time T can be calculated as follows:
 LapDistance(T) \approx L \frac{T-T_1}{T_2 - T_1} . T_1 and T_2 are the start and end time of the current section. L=2.5 miles is the length of the section.
 
-
+The preprocessing mainly includes 3 operations.
+1. Stream data interpolation. In order to expand the training data set, we used interpolation to convert ordinary race records into a time series of car positions.
+2. Data normalization, scale the input data to the range of -1 to 1.
+3. Data sorting. Due to the symmetry of the input data, that is, any data exchanged between two cars can still get a legal data set. Therefore, a model with more parameters is required to learn this symmetry. In order to avoid unnecessary complexity, we sort the data according to the position of the car. That is, the data of the current leading car is placed in the first column, the data of the currently ranked second car is placed in the second column, and so on. This helps to compress the model and improve performance.
 
 ### Feature selection
 
