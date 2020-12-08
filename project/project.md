@@ -39,7 +39,7 @@ Indy500 is the premier event of the IndyCar series. Each year, 33 cars compete o
 ![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/fig1.png)
 In motorsports, a \textbf{pit stop} is a pause for refueling, new tires, repairs, mechanical adjustments, a driver change, a penalty, or any combination of them.Unexpected events happen in a race, including mechanical failures or a crash. Depending on the severity level of the event, sometimes it leads to a dangerous situation for other cars to continue the racing with high speed on the track. In these cases, a full course yellow flag rises to indicate the race entering a caution laps mode, in which all the cars slow down and follow a safety car and can not overtake until another green flag raised. 
 
-[5][6] is a series of work forecasting the decision-to-decision loss in rank position for each racer in NASCAR. [6] describes how they leveraged expert knowledge of the domain to produce a real-time decision system for tire changes within a NASCAR race. 
+[^5][^6] is a series of work forecasting the decision-to-decision loss in rank position for each racer in NASCAR. [^6] describes how they leveraged expert knowledge of the domain to produce a real-time decision system for tire changes within a NASCAR race. 
 They chose to model the change in rank position and avoid predicting the rank position directly since it is complicated due to its dependency on the timing of other racers' pit stops. In our work, we aim to build forecasting that relies less on domain knowledge and investigate the pit stop modeling.
 
 ## 3. Choice of Data-sets
@@ -54,7 +54,7 @@ First, we start from Indy500 and use Indy500-2018 as validation set. Then we inv
 ## 4. Methodology
 First, we have a naive baseline which assumes that the rank positions will not change in the future, denoted as CurRank. 
 Secondly, We implement machine learning regression models as baselines that follow the ideas in which forecast changes of rank position between two consecutive pit stops, including RandomForest, SVM, and XGBoost that do pointwise forecast.
-Thirdly, we test with four latest deep forecasting models as the choice of RankModel, including DeepAR(2017)[7], DeepState(2018), DeepFactor(2019), N-BEATS(2020)[4].
+Thirdly, we test with four latest deep forecasting models as the choice of RankModel, including DeepAR(2017)[^7], DeepState(2018), DeepFactor(2019), N-BEATS(2020)[^4].
 PitModel has three implementations. For example for RankNet, we have 1. RankNet-Joint is the model that train target with pit stop jointly without decomposition. 2. RankNet-Oracle is the model with ground truth TrackStatus and LapStatus as covariates input. It represents the best performance that can be obtained from the model given the caution and pit stop information for a race. 3. RankNet-MLP deploys a separate pit stop model, which is a multilayer perceptron(MLP) network with probability output, as in Fig.  
 
 ![alt text](https://github.com/cybertraining-dsc/fa20-523-349/blob/main/project/figure/fig4.png)
