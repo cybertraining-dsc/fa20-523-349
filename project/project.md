@@ -44,7 +44,7 @@ Among all the events, Indy500 is the most dynamic one which has both the largest
 
 We will train models separately for each event. Races of the first five years are used as the training dataset, the remains are used as testing data. Since Pocono has only five years of data in total, its training set uses four of them. 
 First, we start from Indy500 and use Indy500-2018 as validation set. Then we investigate the generalization capability of the model on data of the other events.
-![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/fig3.png)
+![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled6.png)
 
 ## 4. Methodology
 
@@ -85,16 +85,16 @@ The current position of each car (Lap and Lap Distance)
 Time of the last Pit Stop of each car
 
 Time series prediction problems are a difficult type of predictive modeling problem. Unlike regression predictive modeling, time series also adds the complexity of a sequence dependence among the input variables. A powerful type of neural network designed to handle sequence dependence is called recurrent neural networks. The Long Short-Term Memory network or LSTM network is a type of recurrent neural network used in deep learning because very large architectures can be successfully trained.
-
+![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled5.png)
 
 ## 5. Inference
 
 Table 2 shows the experimental results, which verify our hypothesis that the time series prediction model based on deep learning obtained the highest accuracy. Although the LSTM model achieves the highest accuracy, its advantages are not as obvious as RankNet. This is because the telemetry data of racing cars is non-public, and the data available for training are limited.
-
+![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled4.png)
 According to the experimental results in Table 6, we draw the following conclusions:
 1. The LSTM model has higher accuracy in time series forecasting.
 2. Limited by the size of the training data set (only the telemetry data for 2 games is available), the accuracy improvement obtained by LSTM is not as obvious as RankNet.
-
+![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled7.png)
 
 ## 6. Conclusion
 
