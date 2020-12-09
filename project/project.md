@@ -40,6 +40,11 @@ In many real-world applications, data is captured over the course of time, const
 The traditional statistical learning model (Naive Bayes, SVM, Simple Neural Networks) is difficult to deal with the problem of time series prediction, since the model is unable to understand the time-series dependence of data. Traditional time series prediction models such as autoregressive integrated moving average (ARIMA) can only deal with linear time series with certain periodicity. The anomaly events and human strategies in the racing competition make these methods no longer applicable. Therefore, time series prediction models (RNN, GRU, LSTM, etc.) based on deep learning are more suitable for solving such problems.
 Previous racing prediction attempts such as [^2][^5][^6][^7] could not make real-time predictions because the data they used was based on Lap, that is, new data would only be generated when the car passed a specific position. And we will try to use high-frequency telemetry data to make predictions.
 
+This article is different from [^7] in at least three points:
+1. The resolution of the data is different. This article uses telemetry data. The telemetry data generates 7 to 8 data points per second. After preprocessing, we sample the data to 1 data point per second. The data used in [^7] is based on "Lap", that is, the new data will only be recorded when the car passes the starting point.
+2. The prediction model is different. This article uses LSTM for prediction, while [^7] uses DeepAR-based models for prediction.
+3. The definition of ranking is different. What this article predicts is: Given a certain time t, predict which car will lead at t+tp. And the output of [^7] is: predict the rank of each car to complete the nth lap. One is to predict the position of the car in space at a given time; the other is to give a spatial position (usually the starting point of the track), and then predict the time for the car to pass that position.
+
 ## 3. Choice of Data-sets
 
 There are two main sources of data: One is the game record from 2013 to 2019. The other is telemetry data for 2017 and 2018.
@@ -139,9 +144,9 @@ The author would like to thank Dr. Gregor Von Laszewski, Dr. Geoffrey Fox, and t
 
 ## 8. References
 
-[^1]: IndyCar Dataset.https://racetools.com/logfiles/IndyCar/. visited  on 04/15/2020
+[^1]: IndyCar Dataset. https://racetools.com/logfiles/IndyCar/. visited  on 04/15/2020
 
-[^2]: M4 Competition.https://forecasters.org/resources/time-series-data/m4-competition/.
+[^2]: M4 Competition. https://forecasters.org/resources/time-series-data/m4-competition/.
 
 [^3]: Ding,  M.  Zhang,  X.  Pan,  M.  Yang,  and  X.  He.  Modeling  extremeevents  in  time  series  prediction.InProceedings  of  the  25th  ACMSIGKDD, pages 1114–1122, New York, NY, USA, 2019.
 
@@ -151,4 +156,4 @@ The author would like to thank Dr. Gregor Von Laszewski, Dr. Geoffrey Fox, and t
 
 [^6]: T.  Tulabandhula.Interactions  between  learning  and  decision  making.PhD Thesis, Massachusetts Institute of Technology, 2014.
 
-[^7]: Peng B, Li J, Akkas S, Wang F, Araki T, Yoshiyuki O, Qiu J. Rank Position Forecasting in Car Racing. arXiv preprint arXiv:2010.01707. 2020 Oct 4.
+[^7]: Peng B, Li J, Akkas S, Wang F, Araki T, Yoshiyuki O, Qiu J. Rank Position Forecasting in Car Racing. arXiv preprint https://arxiv.org/abs/2010.01707/ .
