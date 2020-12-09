@@ -144,9 +144,9 @@ The author would like to thank Dr. Gregor Von Laszewski, Dr. Geoffrey Fox, and t
 
 ## 8. References
 
-[^1]: IndyCar Dataset. https://racetools.com/logfiles/IndyCar/. visited  on 04/15/2020
+[^1]: IndyCar Dataset. <https://racetools.com/logfiles/IndyCar/>. visited  on 04/15/2020
 
-[^2]: M4 Competition. https://forecasters.org/resources/time-series-data/m4-competition/.
+[^2]: M4 Competition. <https://forecasters.org/resources/time-series-data/m4-competition/>.
 
 [^3]: Ding,  M.  Zhang,  X.  Pan,  M.  Yang,  and  X.  He.  Modeling  extremeevents  in  time  series  prediction.InProceedings  of  the  25th  ACMSIGKDD, pages 1114–1122, New York, NY, USA, 2019.
 
@@ -156,4 +156,4 @@ The author would like to thank Dr. Gregor Von Laszewski, Dr. Geoffrey Fox, and t
 
 [^6]: T.  Tulabandhula.Interactions  between  learning  and  decision  making.PhD Thesis, Massachusetts Institute of Technology, 2014.
 
-[^7]: Peng B, Li J, Akkas S, Wang F, Araki T, Yoshiyuki O, Qiu J. Rank Position Forecasting in Car Racing. arXiv preprint https://arxiv.org/abs/2010.01707/ .
+[^7]: Peng B, Li J, Akkas S, Wang F, Araki T, Yoshiyuki O, Qiu J. Rank Position Forecasting in Car Racing. arXiv preprint <https://arxiv.org/abs/2010.01707/>.
