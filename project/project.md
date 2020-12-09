@@ -5,7 +5,7 @@
 Status: final, Type: Project
 
 - [x] tables and figures have no caption
-- [x] is the arXiv paper cited and relationship explained? (Jiayu's response: Have added the arXiv paper to the reference list. This report is not a retelling of the arXiv paper <https://arxiv.org/abs/2010.01707>. Instead, it uses different methods and experiments on different data sets. The methods and experiments in this report are done independently by me. Therefore, there is no need to explain the relationship.)
+- [x] is the arXiv paper cited and relationship explained? (Jiayu's response: Have added the arXiv paper to the reference list. The current version is not a retelling of the arXiv paper <https://arxiv.org/abs/2010.01707>. Instead, it uses different methods and experiments on different data sets. The methods and experiments in this report are done independently by me. Therefore, there is no need to explain the relationship.)
 
 * Jiayu Li, fa20-523-349 
 * [Edit](https://github.com/cybertraining-dsc/fa20-523-349/blob/master/project/project.md)
