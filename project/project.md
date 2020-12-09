@@ -50,7 +50,7 @@ If we assume that the speed of the car within each section does not change, then
 LapDistance(T) \approx L \frac{T-T_1}{T_2 - T_1} . T_1 and T_2 are the start and end time of the current section. L=2.5 miles is the length of the section.
 
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled6.png)
-**Table 1 : Indy 500 data sets **
+**Table 1** : Indy 500 data sets
 
 ###  Structure of the log file
 
@@ -72,7 +72,7 @@ Record Description:
 
 Every record starts with a header and ends with a CR/LF. Inside the record, the fields are separated by a "broken bar" symbol 0xA6 (not to be confused with the pipe symbol 0x7C). The length of a record is not defined and can therefore be more than 256 characters. The data specific to each record Command is contained between the header and CR/LF.
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled8.png)
-**Figure 1 : Indy 500 track map **
+**Figure 1** : Indy 500 track map
 
 
 ## 4. Methodology
@@ -105,21 +105,21 @@ Therefore, we choose the following characteristics to predict ranking:
 
 Time series prediction problems are a difficult type of predictive modeling problem. Unlike regression predictive modeling, time series also adds the complexity of a sequence dependence among the input variables. A powerful type of neural network designed to handle sequence dependence is called recurrent neural networks. The Long Short-Term Memory network or LSTM network is a type of recurrent neural network used in deep learning because very large architectures can be successfully trained.
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled5.png)
-** Figure 2 : Work flow and model structure **
+**Figure 2** : Work flow and model structure
 
 ## 5. Inference
 
 Table shows the experimental results, which verify our hypothesis that the time series prediction model based on deep learning obtained the highest accuracy. Although the LSTM model achieves the highest accuracy, its advantages are not as obvious as RankNet. This is because the telemetry data of racing cars is non-public, and the data available for training are limited.
 
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled4.png)
-**Table 2 : LSTM model parameters **
+**Table 2** : LSTM model parameters
 
 According to the experimental results in Table 6, we draw the following conclusions:
 1. The LSTM model has higher accuracy in time series forecasting.
 2. Limited by the size of the training data set (only the telemetry data for 2 games is available), the accuracy improvement obtained by LSTM is not as obvious as RankNet.
 
 ![alt text](https://raw.githubusercontent.com/cybertraining-dsc/fa20-523-349/main/project/images/Untitled7.png)
-**Table 3 : Model accuracy comparison **
+**Table 3** : Model accuracy comparison
 
 ## 6. Conclusion
 
