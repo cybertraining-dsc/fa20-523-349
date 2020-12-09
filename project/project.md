@@ -5,6 +5,8 @@
 Status: final, Type: Project
 
 - [ ] please use proper urls in the refernce section
+- [ ] The sentence "Previous racing prediction attempts such as [^2][^5][^6][^7] could not make real-time predictions because the data they used was based on Lap, that is, new data would only be generated when the car passed a specific position. And we will try to use high-frequency telemetry data to make predictions." is insufficient. Relationship to arxiv  paper must be in detail explained
+
 
 * Jiayu Li, fa20-523-349 
 * [Edit](https://github.com/cybertraining-dsc/fa20-523-349/blob/master/project/project.md)
