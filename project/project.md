@@ -1,12 +1,20 @@
+---
+date: 2021-03-15
+title: Rank Forecasting in Car Racing
+linkTitle: Car Racing
+tags: ["project", "ai", "sports"]
+description: Rank Forecasting in Car Racing
+author: Jiayu Li
+resources:
+- src: "**.{png,jpg}"
+  title: "Image #:counter"
+---
+
 # Rank Forecasting in Car Racing
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-349/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-349/actions)
 [![Status](https://github.com/cybertraining-dsc/fa20-523-349/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-349/actions)
 Status: final, Type: Project
-
-- [x] please use proper urls in the refernce section
-- [x] The sentence "Previous racing prediction attempts such as [^2][^5][^6][^7] could not make real-time predictions because the data they used was based on Lap, that is, new data would only be generated when the car passed a specific position. And we will try to use high-frequency telemetry data to make predictions." is insufficient. Relationship to arxiv  paper must be in detail explained
-
 
 * Jiayu Li, fa20-523-349 
 * [Edit](https://github.com/cybertraining-dsc/fa20-523-349/blob/master/project/project.md)
