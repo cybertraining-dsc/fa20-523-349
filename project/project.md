@@ -5,6 +5,7 @@ linkTitle: Car Racing
 tags: ["project", "ai", "sports"]
 description: "The IndyCar Series is the premier level of open-wheel racing in North America. Computing System and Data analytics is critical to the game, both in improving the performance of the team to make it faster and in helping the race control to make it safer. IndyCar ranking prediction is a practical application of time series problems. We will use the LSTM model to analyze the state of the car, and then predict the future ranking of the car. Rank forecasting in car racing is a challenging problem, which is featured with highly complex global dependency among the cars, with uncertainty resulted from existing exogenous factors, and as a sparse data problem. Existing methods, including statistical models, machine learning regression models, and several state-of-the-art deep forecasting models all perform not well on this problem. In this project, we apply deep learning methods to racing telemetry data. And compare deep learning with traditional statistical methods (SVM, XGBoost)."
 author: Jiayu Li
+github_url: https://github.com/cybertraining-dsc/fa20-523-349/edit/main/project/project.md
 resources:
 - src: "**.{png,jpg}"
   title: "Image #:counter"
